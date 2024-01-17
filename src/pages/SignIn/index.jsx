@@ -1,13 +1,14 @@
-import { Container } from './styles'
 import {  FiMail, FiLock } from 'react-icons/fi'
 
 import { Input } from '../../components/Input'
 import { Button } from '../../components/button'
 
-export function SigIn(){
+import { Container, Form, Background } from './styles'
+
+export function SignIn(){
     return(
         <Container>
-            <form >
+            <Form>
                 <h1>Rocket Notes</h1>
                 <p>Aplicação para salvar e gerenciar seus links úteis</p>
 
@@ -32,11 +33,16 @@ export function SigIn(){
                    icon={ FiLock }
                 />
 
-                <Button>
-                    Entrar
-                </Button>
+                <Button title="Entrar" />
+
+                <a href="#">
+                    Criar conta
+                </a>
+            </Form>
+
+            <Background>
                 
-            </form>
+            </Background>
         </Container>  
     )
 }
