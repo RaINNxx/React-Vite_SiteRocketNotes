@@ -19,12 +19,19 @@ function AuthProvider({ children }){
       setData({ user, token })
 
    } catch(error){
-     if(error.response) {
+     if(error.response) { 
       alert(error.response.data.message)
      } else {
       alert("Não foi possivel entrar")
      }
    }
+ }
+
+ function signOut() {
+  localStorage.removeItem("@rocketnotes:token")
+  localStorage.removeItem("@rocketnotes:user")
+  
+  setData({})
  }
 
  useEffect(() => {
@@ -42,7 +49,12 @@ function AuthProvider({ children }){
  },[])
 
     return(
-        <AuthContext.Provider value={{ signIn, user: data.user  }}>
+        <AuthContext.Provider value={{
+          signIn, 
+          signOut,
+          user: data.user,
+              }}
+              >
              {children}
         </AuthContext.Provider>
     )
